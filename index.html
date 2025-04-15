@@ -18,6 +18,22 @@
   </style>
 </head>
 <body>
+  <div id="language-selector">
+  <button onclick="switchLanguage('ar')">🇲🇦 العربية</button>
+  <button onclick="switchLanguage('en')">🇺🇸 English</button>
+</div>
+<!-- القسم العربي -->
+<div class="lang" id="lang-ar">
+  <h2>من أنا</h2>
+  <p>أنا فنان ثلاثي الأبعاد أستخدم Blender في تصميم النماذج.</p>
+</div>
+
+<!-- English Section -->
+<div class="lang" id="lang-en" style="display:none;">
+  <h2>About Me</h2>
+  <p>I'm a 3D artist using Blender for modeling.</p>
+</div>
+
   <header>
     <h1>THELICH</h1>
     <nav>
@@ -56,5 +72,12 @@
   <footer>
     <p>&copy; 2025 THELICH. جميع الحقوق محفوظة.</p>
   </footer>
+  <script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+    document.getElementById('lang-' + lang).style.display = 'block';
+  }
+</script>
+
 </body>
 </html>
