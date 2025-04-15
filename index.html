@@ -60,10 +60,10 @@
     .portfolio-item:hover {
       transform: scale(1.05);
     }
-    .portfolio-item img, .portfolio-item video {
+    .portfolio-item img, .portfolio-item video, .portfolio-item iframe {
       width: 100%;
-      display: block;
       border-radius: 10px;
+      display: block;
     }
     .portfolio-item p {
       padding: 10px;
@@ -108,25 +108,31 @@
     </p>
   </section>
 
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  <div class="portfolio-grid">
-    <!-- العنصر الأول: صورة -->
-    <div class="portfolio-item">
-      <img src="https://via.placeholder.com/400x300.png?text=Model+1" alt="Work 1">
-      <p>Blender - Product Model</p>
-    </div>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <!-- العنصر الأول: صورة -->
+      <div class="portfolio-item">
+        <img src="https://via.placeholder.com/400x300.png?text=Model+1" alt="Work 1">
+        <p>Blender - Product Model</p>
+      </div>
 
-    <!-- العنصر الثاني: فيديو محلي -->
-  
+      <!-- العنصر الثاني: فيديو محلي -->
+      <div class="portfolio-item">
+        <video controls>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+        <p>Animation Demo</p>
+      </div>
 
-    <!-- العنصر الثالث: فيديو Google Drive -->
-    <div class="portfolio-item">
-      <iframe src="https://drive.google.com/file/d/1g-lW02CglqmrU422ohrCNaSypCfaLFjt/preview" width="640" height="480" allow="autoplay"></iframe>
-      <p>Google Drive Video</p>
+      <!-- العنصر الثالث: فيديو Google Drive -->
+      <div class="portfolio-item">
+        <iframe src="https://drive.google.com/file/d/1g-lW02CglqmrU422ohrCNaSypCfaLFjt/preview" width="640" height="480" allow="autoplay"></iframe>
+        <p>Google Drive Video</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section id="contact">
     <h2>Contact</h2>
@@ -141,6 +147,7 @@
   <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">🔝</button>
 
   <script>
+    // Language toggle functionality
     const langToggle = document.getElementById('lang-toggle');
     let currentLang = 'en';
 
@@ -155,6 +162,7 @@
       });
     });
 
+    // Back-to-top button functionality
     const topBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       topBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
