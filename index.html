@@ -102,17 +102,21 @@
   </header>
 
   <section id="about">
-    <h2>About Me</h2>
+    <h2 id="about-title">About Me</h2>
     <p id="about-text">
       I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.
     </p>
   </section>
-<!-- photo 1  -->
+
+  <section id="portfolio">
+    <h2 id="portfolio-title">Portfolio</h2>
+    <div class="portfolio-grid">
+      <!-- الصورة -->
       <div class="portfolio-item">
-        <img src="https://4kwallpapers.com/images/walls/thumbs_2t/22088.jpg">
+        <img src="https://4kwallpapers.com/images/walls/thumbs_2t/22088.jpg" alt="Work">
         <p>Blender Product Model</p>
       </div>
-<!-- video 1  -->
+      <!-- الفيديو -->
       <div class="portfolio-item">
         <iframe src="https://drive.google.com/file/d/1g-lW02CglqmrU422ohrCNaSypCfaLFjt/preview" width="640" height="300" allow="autoplay"></iframe>
         <p>AirPod Model</p>
@@ -121,13 +125,12 @@
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me via email:</p>
+    <h2 id="contact-title">Contact</h2>
+    <p id="email-text">You can reach me via email:</p>
     <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
-    <p>Follow me on Instagram:</p>
+    <p id="instagram-text">Follow me on Instagram:</p>
     <p><a href="https://www.instagram.com/the._.lich_/" target="_blank">Instagram Profile</a></p>
   </section>
-  
 
   <footer>
     <p>&copy; 2025 THELICH. All rights reserved.</p>
@@ -136,7 +139,6 @@
   <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">🔝</button>
 
   <script>
-    // Language toggle functionality
     const langToggle = document.getElementById('lang-toggle');
     let currentLang = 'en';
 
@@ -146,17 +148,19 @@
       document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
       langToggle.textContent = currentLang === 'ar' ? 'EN' : 'AR';
 
-      // Updating text based on the selected language
+      // الترجمة
       const translations = {
         en: {
-          about: "I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.",
+          aboutTitle: "About Me",
+          aboutText: "I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.",
           portfolioTitle: "Portfolio",
           contactTitle: "Contact",
           emailText: "You can reach me via email:",
           instagramText: "Follow me on Instagram:"
         },
         ar: {
-          about: "أنا فنان ثلاثي الأبعاد متخصص في نمذجة المنتجات والأشياء باستخدام Blender. أقدم نماذج نظيفة واحترافية للألعاب والإعلانات وغيرها.",
+          aboutTitle: "من أنا",
+          aboutText: "أنا فنان ثلاثي الأبعاد متخصص في نمذجة المنتجات والأشياء باستخدام Blender. أقدم نماذج نظيفة واحترافية للألعاب والإعلانات وغيرها.",
           portfolioTitle: "الأعمال",
           contactTitle: "تواصل معي",
           emailText: "يمكنك التواصل معي عبر البريد الإلكتروني:",
@@ -164,14 +168,14 @@
         }
       };
 
-      document.getElementById('about-text').textContent = translations[currentLang].about;
-      document.querySelector('h2:nth-of-type(1)').textContent = translations[currentLang].portfolioTitle;
-      document.querySelector('h2:nth-of-type(2)').textContent = translations[currentLang].contactTitle;
-      document.querySelector('#contact p:nth-of-type(1)').textContent = translations[currentLang].emailText;
-      document.querySelector('#contact p:nth-of-type(3)').textContent = translations[currentLang].instagramText;
+      document.getElementById('about-title').textContent = translations[currentLang].aboutTitle;
+      document.getElementById('about-text').textContent = translations[currentLang].aboutText;
+      document.getElementById('portfolio-title').textContent = translations[currentLang].portfolioTitle;
+      document.getElementById('contact-title').textContent = translations[currentLang].contactTitle;
+      document.getElementById('email-text').textContent = translations[currentLang].emailText;
+      document.getElementById('instagram-text').textContent = translations[currentLang].instagramText;
     });
 
-    // Back-to-top button functionality
     const topBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       topBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
