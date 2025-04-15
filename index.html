@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THELICH - Portfolio</title>
+  <title>THELICH</title>
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
@@ -111,25 +111,15 @@
   <section id="portfolio">
     <h2>Portfolio</h2>
     <div class="portfolio-grid">
-      <!-- العنصر الأول: صورة -->
+
       <div class="portfolio-item">
         <img src="https://via.placeholder.com/400x300.png?text=Model+1" alt="Work 1">
-        <p>Blender - Product Model</p>
+        <p>Blender Product Model</p>
       </div>
 
-      <!-- العنصر الثاني: فيديو محلي -->
-      <div class="portfolio-item">
-        <video controls>
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-          Your browser does not support video.
-        </video>
-        <p>Animation Demo</p>
-      </div>
-
-      <!-- العنصر الثالث: فيديو Google Drive -->
       <div class="portfolio-item">
         <iframe src="https://drive.google.com/file/d/1g-lW02CglqmrU422ohrCNaSypCfaLFjt/preview" width="640" height="480" allow="autoplay"></iframe>
-        <p>Google Drive Video</p>
+        <p>AirPod Model</p>
       </div>
     </div>
   </section>
@@ -138,7 +128,10 @@
     <h2>Contact</h2>
     <p>You can reach me via email:</p>
     <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
+    <p>Follow me on Instagram:</p>
+    <p><a href="https://www.instagram.com/the._.lich_/" target="_blank">Instagram Profile</a></p>
   </section>
+  
 
   <footer>
     <p>&copy; 2025 THELICH. All rights reserved.</p>
@@ -157,9 +150,29 @@
       document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
       langToggle.textContent = currentLang === 'ar' ? 'EN' : 'AR';
 
-      document.querySelectorAll('nav a, h2, #about-text, section p').forEach(el => {
-        el.textContent = currentLang === 'ar' ? 'ترجمة محتوى نصي هنا' : 'Translated content here';
-      });
+      // Updating text based on the selected language
+      const translations = {
+        en: {
+          about: "I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.",
+          portfolioTitle: "Portfolio",
+          contactTitle: "Contact",
+          emailText: "You can reach me via email:",
+          instagramText: "Follow me on Instagram:"
+        },
+        ar: {
+          about: "أنا فنان ثلاثي الأبعاد متخصص في نمذجة المنتجات والأشياء باستخدام Blender. أقدم نماذج نظيفة واحترافية للألعاب والإعلانات وغيرها.",
+          portfolioTitle: "الأعمال",
+          contactTitle: "تواصل معي",
+          emailText: "يمكنك التواصل معي عبر البريد الإلكتروني:",
+          instagramText: "تابعني على إنستغرام:"
+        }
+      };
+
+      document.getElementById('about-text').textContent = translations[currentLang].about;
+      document.querySelector('h2:nth-of-type(1)').textContent = translations[currentLang].portfolioTitle;
+      document.querySelector('h2:nth-of-type(2)').textContent = translations[currentLang].contactTitle;
+      document.querySelector('#contact p:nth-of-type(1)').textContent = translations[currentLang].emailText;
+      document.querySelector('#contact p:nth-of-type(3)').textContent = translations[currentLang].instagramText;
     });
 
     // Back-to-top button functionality
