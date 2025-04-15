@@ -1,4 +1,3 @@
-<!-- انسخ هذا الكود كامل وضعه داخل index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,69 +14,108 @@
     .portfolio-item { background-color: #1f1f1f; padding: 10px; border-radius: 10px; text-align: center; }
     .portfolio-item img { width: 100%; border-radius: 10px; }
     footer a { color: #00ffe7; text-decoration: none; }
+    #language-selector { text-align: center; margin: 20px 0; }
+    #language-selector button { margin: 5px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; background-color: #00ffe7; color: #1a1a1a; font-size: 16px; }
+    .lang { display: none; } /* إخفاء الأقسام الافتراضية */
+    .lang.active { display: block; } /* عرض القسم النشط */
   </style>
 </head>
 <body>
   <div id="language-selector">
-  <button onclick="switchLanguage('ar')">🇲🇦 العربية</button>
-  <button onclick="switchLanguage('en')">🇺🇸 English</button>
-</div>
-<!-- القسم العربي -->
-<div class="lang" id="lang-ar">
-  <h2>من أنا</h2>
-  <p>أنا فنان ثلاثي الأبعاد أستخدم Blender في تصميم النماذج.</p>
-</div>
+    <button onclick="switchLanguage('ar')">🇲🇦 العربية</button>
+    <button onclick="switchLanguage('en')">🇺🇸 English</button>
+  </div>
 
-<!-- English Section -->
-<div class="lang" id="lang-en" style="display:none;">
-  <h2>About Me</h2>
-  <p>I'm a 3D artist using Blender for modeling.</p>
-</div>
+  <!-- القسم العربي -->
+  <div class="lang" id="lang-ar" class="active">
+    <header>
+      <h1>THELICH</h1>
+      <nav>
+        <a href="#about">من أنا</a>
+        <a href="#portfolio">الأعمال</a>
+        <a href="#contact">تواصل معي</a>
+      </nav>
+    </header>
 
-  <header>
-    <h1>THELICH</h1>
-    <nav>
-      <a href="#about">من أنا</a>
-      <a href="#portfolio">الأعمال</a>
-      <a href="#contact">تواصل معي</a>
-    </nav>
-  </header>
+    <section id="about">
+      <h2>من أنا</h2>
+      <p>أنا فنان ثلاثي الأبعاد أشتغل على نمذجة المنتجات والأشياء باستعمال Blender. أقدم نماذج نظيفة واحترافية لاستعمالات متعددة كالألعاب، الإعلانات، والعروض البصرية. مرحباً بك في عالمي الفني.</p>
+    </section>
 
-  <section id="about">
-    <h2>من أنا</h2>
-    <p>أنا فنان ثلاثي الأبعاد أشتغل على نمذجة المنتجات والأشياء باستعمال Blender. أقدم نماذج نظيفة واحترافية لاستعمالات متعددة كالألعاب، الإعلانات، والعروض البصرية. مرحباً بك في عالمي الفني.</p>
-  </section>
-
-  <section id="portfolio">
-    <h2>الأعمال</h2>
-    <div class="portfolio-grid">
-      <!-- هنا تقدر تزيد الصور ديال الأعمال ديالك -->
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/400x300.png?text=عمل+1" alt="عمل 1">
-        <p>اسم العمل</p>
+    <section id="portfolio">
+      <h2>الأعمال</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300.png?text=عمل+1" alt="عمل 1">
+          <p>اسم العمل</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300.png?text=عمل+2" alt="عمل 2">
+          <p>اسم العمل</p>
+        </div>
       </div>
-      <div class="portfolio-item">
-        <img src="https://via.placeholder.com/400x300.png?text=عمل+2" alt="عمل 2">
-        <p>اسم العمل</p>
+    </section>
+
+    <section id="contact">
+      <h2>تواصل معي</h2>
+      <p>يمكنك التواصل معي عبر البريد الإلكتروني:</p>
+      <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 THELICH. جميع الحقوق محفوظة.</p>
+    </footer>
+  </div>
+
+  <!-- English Section -->
+  <div class="lang" id="lang-en">
+    <header>
+      <h1>THELICH</h1>
+      <nav>
+        <a href="#about">About Me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I'm a 3D artist using Blender for creating clean and professional models for various purposes like gaming, advertising, and visual presentations. Welcome to my artistic world!</p>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300.png?text=Work+1" alt="Work 1">
+          <p>Work Name</p>
+        </div>
+        <div class="portfolio-item">
+          <img src="https://via.placeholder.com/400x300.png?text=Work+2" alt="Work 2">
+          <p>Work Name</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <h2>تواصل معي</h2>
-    <p>يمكنك التواصل معي عبر البريد الإلكتروني:</p>
-    <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
-  </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>You can contact me via email:</p>
+      <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 THELICH. جميع الحقوق محفوظة.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 THELICH. All rights reserved.</p>
+    </footer>
+  </div>
+
   <script>
-  function switchLanguage(lang) {
-    document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
-    document.getElementById('lang-' + lang).style.display = 'block';
-  }
-</script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => el.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+    }
+    // Set default language to Arabic
+    switchLanguage('ar');
+  </script>
 
 </body>
 </html>
