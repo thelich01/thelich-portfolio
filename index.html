@@ -8,7 +8,7 @@
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #121212;
       color: #f0f0f0;
       transition: all 0.3s ease;
@@ -21,14 +21,14 @@
     header h1 {
       margin: 0;
       color: #00ffe7;
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
     nav a {
       margin: 0 15px;
       color: #00ffe7;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     #lang-toggle {
       margin-top: 15px;
@@ -38,12 +38,17 @@
       padding: 8px 16px;
       border-radius: 5px;
       cursor: pointer;
+      font-size: 1rem;
     }
     section {
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
       text-align: center;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #00ffe7;
     }
     .portfolio-grid {
       display: grid;
@@ -60,16 +65,18 @@
     .portfolio-item:hover {
       transform: scale(1.05);
     }
-    .portfolio-item img, .portfolio-item video, .portfolio-item iframe {
+    .portfolio-item iframe {
       width: 100%;
       border-radius: 10px;
       display: block;
     }
     .portfolio-item p {
       padding: 10px;
+      font-size: 1rem;
     }
     footer {
       margin-top: 40px;
+      font-size: 1rem;
     }
     #back-to-top {
       position: fixed;
@@ -111,11 +118,6 @@
   <section id="portfolio">
     <h2 id="portfolio-title">Portfolio</h2>
     <div class="portfolio-grid">
-      <!-- الصورة -->
-      <div class="portfolio-item">
-        <img src="https://4kwallpapers.com/images/walls/thumbs_2t/22088.jpg" alt="Work">
-        <p>Blender Product Model</p>
-      </div>
       <!-- الفيديو -->
       <div class="portfolio-item">
         <iframe src="https://drive.google.com/file/d/1g-lW02CglqmrU422ohrCNaSypCfaLFjt/preview" width="640" height="300" allow="autoplay"></iframe>
@@ -148,7 +150,6 @@
       document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
       langToggle.textContent = currentLang === 'ar' ? 'EN' : 'AR';
 
-      // الترجمة
       const translations = {
         en: {
           aboutTitle: "About Me",
