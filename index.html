@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>THELICH - Portfolio</title>
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #0e0e0e;
+      background-color: #121212;
       color: #f0f0f0;
       transition: all 0.3s ease;
     }
@@ -21,23 +21,21 @@
     header h1 {
       margin: 0;
       color: #00ffe7;
-      font-size: 2em;
-    }
-    nav {
-      margin-top: 10px;
+      font-size: 2rem;
     }
     nav a {
-      margin: 0 10px;
+      margin: 0 15px;
       color: #00ffe7;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
     }
     #lang-toggle {
-      margin-top: 10px;
+      margin-top: 15px;
       background-color: #00ffe7;
       color: #000;
       border: none;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -45,10 +43,7 @@
       padding: 40px 20px;
       max-width: 1000px;
       margin: auto;
-    }
-    h2 {
       text-align: center;
-      color: #00ffe7;
     }
     .portfolio-grid {
       display: grid;
@@ -59,20 +54,22 @@
     .portfolio-item {
       background-color: #1a1a1a;
       border-radius: 10px;
-      overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease;
     }
     .portfolio-item:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
     .portfolio-item img, .portfolio-item video {
       width: 100%;
       display: block;
+      border-radius: 10px;
     }
     .portfolio-item p {
       padding: 10px;
-      text-align: center;
+    }
+    footer {
+      margin-top: 40px;
     }
     #back-to-top {
       position: fixed;
@@ -90,45 +87,29 @@
       display: none;
       z-index: 999;
     }
-    footer {
-      margin-top: 40px;
-    }
-    [dir="rtl"] {
-      direction: rtl;
-      text-align: right;
-    }
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
-      header h1 {
-        font-size: 1.5em;
-      }
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <h1 id="site-title">THELICH</h1>
+    <h1>THELICH</h1>
     <nav>
-      <a href="#about" data-en="About Me" data-ar="من أنا">About Me</a>
-      <a href="#portfolio" data-en="Portfolio" data-ar="الأعمال">Portfolio</a>
-      <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+      <a href="#about">About Me</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
     </nav>
     <button id="lang-toggle">AR</button>
   </header>
 
   <section id="about">
-    <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
+    <h2>About Me</h2>
     <p id="about-text">
       I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.
     </p>
   </section>
 
   <section id="portfolio">
-    <h2 data-en="Portfolio" data-ar="الأعمال">Portfolio</h2>
+    <h2>Portfolio</h2>
     <div class="portfolio-grid">
       <div class="portfolio-item">
         <img src="https://via.placeholder.com/400x300.png?text=Model+1" alt="Work 1">
@@ -145,8 +126,8 @@
   </section>
 
   <section id="contact">
-    <h2 data-en="Contact" data-ar="تواصل معي">Contact</h2>
-    <p data-en="You can reach me via email:" data-ar="راسلني عبر البريد الإلكتروني:"></p>
+    <h2>Contact</h2>
+    <p>You can reach me via email:</p>
     <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
   </section>
 
@@ -166,14 +147,9 @@
       document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
       langToggle.textContent = currentLang === 'ar' ? 'EN' : 'AR';
 
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = currentLang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      document.querySelectorAll('nav a, h2, #about-text, section p').forEach(el => {
+        el.textContent = currentLang === 'ar' ? 'ترجمة محتوى نصي هنا' : 'Translated content here';
       });
-
-      document.getElementById('about-text').textContent =
-        currentLang === 'ar'
-          ? 'أنا فنان ثلاثي الأبعاد متخصص في نمذجة المنتجات والأشياء باستخدام Blender. أقدم نماذج نظيفة واحترافية للألعاب، الإعلانات، والمزيد.'
-          : "I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.";
     });
 
     const topBtn = document.getElementById('back-to-top');
@@ -184,4 +160,3 @@
 
 </body>
 </html>
-
