@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>THELICH - معرض الأعمال</title>
+  <title>THELICH - Portfolio</title>
   <style>
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
@@ -11,6 +11,7 @@
       font-family: 'Arial', sans-serif;
       background-color: #0e0e0e;
       color: #f0f0f0;
+      transition: all 0.3s ease;
     }
     header, footer {
       background: linear-gradient(to right, #111, #222);
@@ -21,13 +22,24 @@
       margin: 0;
       color: #00ffe7;
       font-size: 2em;
-      letter-spacing: 2px;
+    }
+    nav {
+      margin-top: 10px;
     }
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       color: #00ffe7;
       text-decoration: none;
       font-weight: bold;
+    }
+    #lang-toggle {
+      margin-top: 10px;
+      background-color: #00ffe7;
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      cursor: pointer;
     }
     section {
       padding: 40px 20px;
@@ -81,8 +93,10 @@
     footer {
       margin-top: 40px;
     }
-
-    /* Responsive */
+    [dir="rtl"] {
+      direction: rtl;
+      text-align: right;
+    }
     @media (max-width: 600px) {
       nav a {
         display: block;
@@ -97,50 +111,71 @@
 <body>
 
   <header>
-    <h1>THELICH</h1>
+    <h1 id="site-title">THELICH</h1>
     <nav>
-      <a href="#about">من أنا</a>
-      <a href="#portfolio">الأعمال</a>
-      <a href="#contact">تواصل معي</a>
+      <a href="#about" data-en="About Me" data-ar="من أنا">About Me</a>
+      <a href="#portfolio" data-en="Portfolio" data-ar="الأعمال">Portfolio</a>
+      <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
     </nav>
+    <button id="lang-toggle">AR</button>
   </header>
 
   <section id="about">
-    <h2>من أنا</h2>
-    <p>أنا فنان 3D متخصص في النمذجة باستعمال Blender. أصنع محتوى بصري احترافي للألعاب، الإعلانات، والعروض.</p>
+    <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
+    <p id="about-text">
+      I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.
+    </p>
   </section>
 
   <section id="portfolio">
-    <h2>الأعمال</h2>
+    <h2 data-en="Portfolio" data-ar="الأعمال">Portfolio</h2>
     <div class="portfolio-grid">
-      <!-- زيد خدمتك هنا -->
       <div class="portfolio-item">
-        <img src="https://via.placeholder.com/400x300.png?text=Blender+Model+1" alt="عمل 1">
-        <p>تصميم منتج 1</p>
+        <img src="https://via.placeholder.com/400x300.png?text=Model+1" alt="Work 1">
+        <p>Blender - Product Model</p>
       </div>
       <div class="portfolio-item">
         <video controls>
           <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-          المتصفح لا يدعم الفيديو.
+          Your browser does not support video.
         </video>
-        <p>فيديو توضيحي</p>
+        <p>Animation Demo</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>تواصل معي</h2>
-    <p>راسلني على البريد الإلكتروني:</p>
+    <h2 data-en="Contact" data-ar="تواصل معي">Contact</h2>
+    <p data-en="You can reach me via email:" data-ar="راسلني عبر البريد الإلكتروني:"></p>
     <p><a href="mailto:thelichfalll@gmail.com">thelichfalll@gmail.com</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 THELICH. جميع الحقوق محفوظة.</p>
+    <p>&copy; 2025 THELICH. All rights reserved.</p>
   </footer>
 
   <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">🔝</button>
 
   <script>
+    const langToggle = document.getElementById('lang-toggle');
+    let currentLang = 'en';
+
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'ar' : 'en';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+      langToggle.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = currentLang === 'ar' ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+
+      document.getElementById('about-text').textContent =
+        currentLang === 'ar'
+          ? 'أنا فنان ثلاثي الأبعاد متخصص في نمذجة المنتجات والأشياء باستخدام Blender. أقدم نماذج نظيفة واحترافية للألعاب، الإعلانات، والمزيد.'
+          : "I'm a 3D artist specialized in modeling objects and products using Blender. I provide clean and professional models for games, ads, and more.";
+    });
+
     const topBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       topBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
@@ -149,3 +184,4 @@
 
 </body>
 </html>
+
